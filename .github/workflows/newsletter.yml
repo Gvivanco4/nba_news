@@ -37,11 +37,11 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           RECEIPT_EMAIL: ${{ secrets.RECEIPT_EMAIL }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          CONTRASENIA_GMAIL: ${{ secrets.CONTRASENIA_GMAIL }}
         run: |
           python - <<'PY'
           import os
-          required = ('ANTHROPIC_API_KEY', 'SENDER_EMAIL', 'RECEIPT_EMAIL', 'GMAIL_APP_PASSWORD')
+          required = ('ANTHROPIC_API_KEY', 'SENDER_EMAIL', 'RECEIPT_EMAIL', 'CONTRASENIA_GMAIL')
           missing = [name for name in required if not os.environ.get(name)]
           if missing:
               raise SystemExit('Faltan secretos de GitHub Actions: ' + ', '.join(missing))
@@ -52,5 +52,5 @@ jobs:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           SENDER_EMAIL: ${{ secrets.SENDER_EMAIL }}
           RECEIPT_EMAIL: ${{ secrets.RECEIPT_EMAIL }}
-          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          CONTRASENIA_GMAIL: ${{ secrets.CONTRASENIA_GMAIL }}
         run: python src/main.py
