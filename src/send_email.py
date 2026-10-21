@@ -9,7 +9,7 @@ load_dotenv()
 def send_email(html: str, subject: str) -> None:
     sender = os.environ.get("SENDER_EMAIL")
     receipt = os.environ.get("RECEIPT_EMAIL")
-    password = os.environ.get("GMAIL_APP_PASSWORD") or os.environ.get("CONTRASEÑA_GMAIL")
+    password = os.environ.get("GMAIL_APP_PASSWORD") or os.environ.get("CONTRASENIA_GMAIL")
 
     if not all((sender, receipt, password)):
         raise ValueError(
